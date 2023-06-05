@@ -14,15 +14,15 @@
 
 <body>
     <div class="header"></div>
-    <div class="contentTitle">
+    <div class="contentTitle" id="tituloPrincipal">
         <h1 class="titleLabel">Compra</h1>
     </div>
-    <div class="content">
+    <div class="content" id="subTitulo1">
         <h3 class="defaultLabel">Entradas</h3>
     </div>
     <div class="horizontal-line"></div>
 
-    <div class="containerEntradas">
+    <div class="containerEntradas" id="containerEntradas">
         <label>
             <img src="{% static 'comprarPage/zonas.png' %}" alt="ImagenZona" class="imagenZona" width="300px">
         </label>
@@ -106,95 +106,102 @@
 
     </div>
 
-    <div class="content">
-        <h3 class="defaultLabel">Obligatorio</h3>
-    </div>
-    <div class="horizontal-line"></div>
+    <div id="regionObligatoria" hidden>
 
-    <div class="container3Items">
-        <label for="smallLabel">Celular:</label>
-        <input type="text" id="celular" name="celular" maxlength="9" onkeypress="return soloNumeros(event)">
-        <div class="containerSingleItem"><button>Enviar sms</button></div>
+        <div class="content" id="subTitulo2">
+            <h3 class="defaultLabel">Obligatorio</h3>
+        </div>
+        <div class="horizontal-line2"></div>
 
-    </div>
+        <div class="container3Items">
+            <label for="smallLabel">Celular:</label>
+            <input type="text" id="celular" name="celular" maxlength="9" onkeypress="return soloNumeros(event)">
+            <div class="containerSingleItem"><button>Enviar sms</button></div>
 
-    <div class="container3Items">
-        <label for="smallLabel">Codigo:</label>
-        <input type="text" id="codigo" name="codigo" maxlength="6" onkeypress="return soloNumeros(event)">
-        <div class="containerSingleItem"><button>Verificar</button></div>
+        </div>
 
-    </div>
+        <div class="container3Items">
+            <label for="smallLabel">Codigo:</label>
+            <input type="text" id="codigo" name="codigo" maxlength="6" onkeypress="return soloNumeros(event)">
+            <div class="containerSingleItem"><button>Verificar</button></div>
 
-    <div class="container3Items">
-        <label for="smallLabel">PIN:</label>
-        <input type="text" id="pin" name="pin" maxlength="10" onkeypress="return soloNumeros(event)">
-        <div class="containerSingleItem"></div>
-    </div>
+        </div>
 
-    <div class="contentOptions">
-        <div class="container">
-            <label for="smallLabel">Medio de pago:</label>
-            <div class="containerVertical">
-                <label>
-                    <input type="checkbox" name="option1" id="yapeCheckBox" onclick="medioPagoElegido('yapeCheckBox')">
-                    <img src="{% static 'comprarPage/yapeicon.png' %}" alt="Icono 1" class="icono"> Yape
-                </label>
-                <label>
-                    <input type="checkbox" name="option2" id="plinCheckBox" onclick="medioPagoElegido('plinCheckBox')">
-                    <img src="{% static 'comprarPage/plinicon.png' %}" alt="Icono 2" class="icono"> Plin
-                </label>
-                <label>
-                    <input type="checkbox" name="option3" id="bcpCheckBox" onclick="medioPagoElegido('bcpCheckBox')">
-                    <img src="{% static 'comprarPage/bcpicon.png' %}" alt="Icono 3" class="icono"> BCP
-                </label>
+        <div class="container3Items">
+            <label for="smallLabel">PIN:</label>
+            <input type="text" id="pin" name="pin" maxlength="10" onkeypress="return soloNumeros(event)">
+            <div class="containerSingleItem"></div>
+        </div>
+
+        <div class="contentOptions">
+            <div class="container">
+                <label for="smallLabel">Medio de pago:</label>
+                <div class="containerVertical">
+                    <label>
+                        <input type="checkbox" name="option1" id="yapeCheckBox"
+                            onclick="medioPagoElegido('yapeCheckBox')">
+                        <img src="{% static 'comprarPage/yapeicon.png' %}" alt="Icono 1" class="icono"> Yape
+                    </label>
+                    <label>
+                        <input type="checkbox" name="option2" id="plinCheckBox"
+                            onclick="medioPagoElegido('plinCheckBox')">
+                        <img src="{% static 'comprarPage/plinicon.png' %}" alt="Icono 2" class="icono"> Plin
+                    </label>
+                    <label>
+                        <input type="checkbox" name="option3" id="bcpCheckBox"
+                            onclick="medioPagoElegido('bcpCheckBox')">
+                        <img src="{% static 'comprarPage/bcpicon.png' %}" alt="Icono 3" class="icono"> BCP
+                    </label>
+                </div>
             </div>
         </div>
     </div>
 
 
-    <div class="content">
-        <h3 class="defaultLabel">Opcional</h3>
+    <div id="regionOpcional" hidden>
+        <div class="content">
+            <h3 class="defaultLabel">Opcional</h3>
+        </div>
+        <div class="horizontal-line"></div>
+        <div class="contentOptions">
+            <div class="container">
+                <label for="smallLabel">Nombre:</label>
+                <input type="text" name="nombre" maxlength="40">
+            </div>
+            <div class="container">
+                <label for="smallLabel">Correo:</label>
+                <input type="text" name="correo" maxlength="50">
+            </div>
+            <div class="container">
+                <label for="smallLabel">DNI:</label>
+                <input type="text" name="dni" maxlength="6" onkeypress="return soloNumeros(event)">
+            </div>
+            <div class=" container">
+                <label for="smallLabel">Pregunta 2:</label>
+                <select width="200px">
+                    {% for pregunta in preguntas %}
+                    <option value="{{ pregunta.id }}">{{ pregunta.pregunta }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="container">
+                <input type="text" name="dni" maxlength="50">
+            </div>
+
+            <div class=" container">
+                <label for="smallLabel">Pregunta 2:</label>
+                <select width="200px">
+                    {% for pregunta in preguntas %}
+                    <option value="{{ pregunta.id }}">{{ pregunta.pregunta }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="container">
+                <input type="text" name="dni" maxlength="50">
+            </div>
+        </div>
+
     </div>
-    <div class="horizontal-line"></div>
-    <div class="contentOptions">
-        <div class="container">
-            <label for="smallLabel">Nombre:</label>
-            <input type="text" name="nombre" maxlength="40">
-        </div>
-        <div class="container">
-            <label for="smallLabel">Correo:</label>
-            <input type="text" name="correo" maxlength="50">
-        </div>
-        <div class="container">
-            <label for="smallLabel">DNI:</label>
-            <input type="text" name="dni" maxlength="6" onkeypress="return soloNumeros(event)">
-        </div>
-        <div class="container">
-            <label for="smallLabel">Pregunta 1:</label>
-            <select id="miCombo">
-                <option value="opcion1">Opción 1</option>
-                <option value="opcion2">Opción 2</option>
-                <option value="opcion3">Opción 3</option>
-            </select>
-        </div>
-        <div class="container">
-            <input type="text" name="dni" maxlength="50">
-        </div>
-
-        <div class=" container">
-            <label for="smallLabel">Pregunta 2:</label>
-            <select id="miCombo2">
-                <option value="opcion1">Opción 1</option>
-                <option value="opcion2">Opción 2</option>
-                <option value="opcion3">Opción 3</option>
-            </select>
-        </div>
-        <div class="container">
-            <input type="text" name="dni" maxlength="50">
-        </div>
-    </div>
-
-
 
     <div class="footer"></div>
     <!-- Scripts -->

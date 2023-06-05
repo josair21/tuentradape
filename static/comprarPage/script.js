@@ -1,3 +1,10 @@
+ScrollReveal().reveal('.header', { delay: 1000 });
+ScrollReveal().reveal('#tituloPrincipal', { delay: 1000 });
+ScrollReveal().reveal('#subTitulo1', { delay: 1000 });
+ScrollReveal().reveal('.horizontal-line', { delay: 1000 });
+ScrollReveal().reveal('#containerEntradas', { delay: 1000 });
+
+
 function disminuirFila(fila) {
     var element = document.getElementById(fila);
     var numero = parseInt(element.innerText);
@@ -22,6 +29,14 @@ function montoTotal() {
         parseInt(document.getElementById("entradasFila4").innerText) * parseInt(document.getElementById("montoFila4").innerText.substring(4));
     var element = document.getElementById("montoTotal");
     element.innerText = "S/. " + total.toString();
+    if (total > 0) {
+        var contenedor = document.getElementById("regionObligatoria")
+        contenedor.hidden = false;
+    }
+    else {
+        var contenedor = document.getElementById("regionObligatoria")
+        contenedor.hidden = true;
+    }
 }
 
 function soloNumeros(event) {

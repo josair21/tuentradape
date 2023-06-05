@@ -37,6 +37,6 @@ class Tipos(models.Model):
 
 class Preguntas(models.Model):
     tipo = models.PositiveIntegerField()
-    pregunta = models.TextField()
+    pregunta = models.CharField(max_length=100)
     def __str__(self):
         return self.pregunta
