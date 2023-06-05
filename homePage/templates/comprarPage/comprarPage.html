@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuentrada Pe</title>
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="{% static 'comprarPage/styles.css' %}">
+    <script src="{% static 'comprarPage/script.js' %}"></script>
+</head>
+
+<body>
+    <div class="header"></div>
+    <div class="contentTitle">
+        <h1 class="titleLabel">Compra</h1>
+    </div>
+    <div class="content">
+        <h3 class="defaultLabel">Entradas</h3>
+    </div>
+    <div class="horizontal-line"></div>
+
+    <div class="containerEntradas">
+        <label>
+            <img src="{% static 'comprarPage/zonas.png' %}" alt="ImagenZona" class="imagenZona" width="300px">
+        </label>
+        <div class="container5ItemsVertical">
+            <div class="containerTickets">
+                <div style="margin-right: 50px;">
+                    <h4>Tickets</h4>
+                </div>
+                <div><button>Actualizar</button></div>
+
+            </div>
+            <div class="container5Items">
+                <div class="container5ItemsSingle1" width="200px"> <label>BOX</label></div>
+                <div class="container5ItemsSingle2">
+                    <button id="disminuirFila1" onclick="disminuirFila('entradasFila1')"> - </button>
+                </div>
+                <div class="container5ItemsSingle3">
+                    <label id="entradasFila1">00</label>
+                </div>
+                <div class="container5ItemsSingle4">
+                    <button id="aumentarFila1" onclick="aumentarFila('entradasFila1')"> + </button>
+                </div>
+                <div class="container5ItemsSingle5"> <label id="montoFila1">S/. 5000</label></div>
+            </div>
+            <div class="container5Items">
+                <div class="container5ItemsSingle1"> <label>Platinium</label></div>
+                <div class="container5ItemsSingle2">
+                    <button id="disminuirFila2" onclick="disminuirFila('entradasFila2')"> - </button>
+                </div>
+                <div class="container5ItemsSingle3">
+                    <label id="entradasFila2">00</label>
+                </div>
+                <div class="container5ItemsSingle4">
+                    <button id="aumentarFila2" onclick="aumentarFila('entradasFila2')"> + </button>
+                </div>
+                <div class="container5ItemsSingle5"> <label id="montoFila2">S/. 2000</label></div>
+            </div>
+            <div class="container5Items">
+                <div class="container5ItemsSingle1"> <label>Golden</label></div>
+                <div class="container5ItemsSingle2">
+                    <button id="disminuirFila3" onclick="disminuirFila('entradasFila3')"> - </button>
+                </div>
+                <div class="container5ItemsSingle3">
+                    <label id="entradasFila3">00</label>
+                </div>
+                <div class="container5ItemsSingle4">
+                    <button id="aumentarFila3" onclick="aumentarFila('entradasFila3')"> + </button>
+                </div>
+                <div class="container5ItemsSingle5"> <label id="montoFila3">S/. 400</label></div>
+            </div>
+            <div class="container5Items">
+                <div class="container5ItemsSingle1"> <label>Preferencial</label></div>
+                <div class="container5ItemsSingle2">
+                    <button id="disminuirFila4" onclick="disminuirFila('entradasFila4')"> - </button>
+                </div>
+                <div class="container5ItemsSingle3">
+                    <label id="entradasFila4">00</label>
+                </div>
+                <div class="container5ItemsSingle4">
+                    <button id="aumentarFila4" onclick="aumentarFila('entradasFila4')"> + </button>
+                </div>
+                <div class="container5ItemsSingle5"> <label id="montoFila4">S/. 200</label></div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="content">
+
+    </div>
+
+
+    <div class="containerMonto">
+        <label for="smallLabel">Monto:</label>
+        <label for="smallLabel" id="montoTotal">S/. 0</label>
+        <button>Comprar</button>
+
+    </div>
+
+    <div class="content">
+        <h3 class="defaultLabel">Obligatorio</h3>
+    </div>
+    <div class="horizontal-line"></div>
+
+    <div class="container3Items">
+        <label for="smallLabel">Celular:</label>
+        <input type="text" id="celular" name="celular" maxlength="9" onkeypress="return soloNumeros(event)">
+        <div class="containerSingleItem"><button>Enviar sms</button></div>
+
+    </div>
+
+    <div class="container3Items">
+        <label for="smallLabel">Codigo:</label>
+        <input type="text" id="codigo" name="codigo" maxlength="6" onkeypress="return soloNumeros(event)">
+        <div class="containerSingleItem"><button>Verificar</button></div>
+
+    </div>
+
+    <div class="container3Items">
+        <label for="smallLabel">PIN:</label>
+        <input type="text" id="pin" name="pin" maxlength="10" onkeypress="return soloNumeros(event)">
+        <div class="containerSingleItem"></div>
+    </div>
+
+    <div class="contentOptions">
+        <div class="container">
+            <label for="smallLabel">Medio de pago:</label>
+            <div class="containerVertical">
+                <label>
+                    <input type="checkbox" name="option1" id="yapeCheckBox" onclick="medioPagoElegido('yapeCheckBox')">
+                    <img src="{% static 'comprarPage/yapeicon.png' %}" alt="Icono 1" class="icono"> Yape
+                </label>
+                <label>
+                    <input type="checkbox" name="option2" id="plinCheckBox" onclick="medioPagoElegido('plinCheckBox')">
+                    <img src="{% static 'comprarPage/plinicon.png' %}" alt="Icono 2" class="icono"> Plin
+                </label>
+                <label>
+                    <input type="checkbox" name="option3" id="bcpCheckBox" onclick="medioPagoElegido('bcpCheckBox')">
+                    <img src="{% static 'comprarPage/bcpicon.png' %}" alt="Icono 3" class="icono"> BCP
+                </label>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="content">
+        <h3 class="defaultLabel">Opcional</h3>
+    </div>
+    <div class="horizontal-line"></div>
+    <div class="contentOptions">
+        <div class="container">
+            <label for="smallLabel">Nombre:</label>
+            <input type="text" name="nombre" maxlength="40">
+        </div>
+        <div class="container">
+            <label for="smallLabel">Correo:</label>
+            <input type="text" name="correo" maxlength="50">
+        </div>
+        <div class="container">
+            <label for="smallLabel">DNI:</label>
+            <input type="text" name="dni" maxlength="6" onkeypress="return soloNumeros(event)">
+        </div>
+        <div class="container">
+            <label for="smallLabel">Pregunta 1:</label>
+            <select id="miCombo">
+                <option value="opcion1">Opción 1</option>
+                <option value="opcion2">Opción 2</option>
+                <option value="opcion3">Opción 3</option>
+            </select>
+        </div>
+        <div class="container">
+            <input type="text" name="dni" maxlength="50">
+        </div>
+
+        <div class=" container">
+            <label for="smallLabel">Pregunta 2:</label>
+            <select id="miCombo2">
+                <option value="opcion1">Opción 1</option>
+                <option value="opcion2">Opción 2</option>
+                <option value="opcion3">Opción 3</option>
+            </select>
+        </div>
+        <div class="container">
+            <input type="text" name="dni" maxlength="50">
+        </div>
+    </div>
+
+
+
+    <div class="footer"></div>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="{% static 'comprarPage/script.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuentrada Pe</title>
+    <link rel="icon" href="/img/about/logo.jpg">
+</head>
+
+<body>
+    <form action="{% url 'comprarPage' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Comprar Tickets</button>
+    </form>
+    <form action="{% url 'validarPage' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Administrar Tickets</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuentrada Pe</title>
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="{% static 'validacionPage/styles.css' %}">
+    <script src="{% static 'validacionPage/script.js' %}"></script>
+</head>
+
+<body>
+    <div class="header"></div>
+    <div class="content">
+        <h1 class="titleLabel">Validación de ticket</h1>
+    </div>
+    <div class="content">
+        <h2 class="ticketLabel">Ticket</h2>
+        <input type="text" class="textInput">
+        <h2 class="cipLabel">CIP</h2>
+        <input type="text" class="textInput">
+    </div>
+    <div class="content">
+        <button class="verificarBtn">Verificar</button>
+    </div>
+    <div class="footer"></div>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="{% static 'comprarPage/script.js' %}"></script>
+</body>
+
+</html>
