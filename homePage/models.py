@@ -1,6 +1,6 @@
 from django.db import models
 class Pago(models.Model):
-    key = models.ForeignKey()
+    #key = models.ForeignKey()
     fechaHora = models.DateTimeField()
     celular = models.PositiveIntegerField()
     recibo = models.PositiveBigIntegerField()
