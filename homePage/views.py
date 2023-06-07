@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from homePage.models import Preguntas, Tipos
+from codigoValidacion import generaCodigoValidacion
 
 def homePage(request):
     return render(request, "homePage.html")
@@ -10,9 +11,8 @@ def comprarPage(request):
         if request.POST.get('boton') == 'sms':
             celular = request.POST.get('celular')
             print(celular)
-            CodigoValidacion=generaCodigoValidacion()
-            almacenaCelularValidador(CodigoValidacion)
-
+            codigoValidacion=generaCodigoValidacion(6)
+            almacenaCelularValidador(celular,codigoValidacion)
         elif request.POST.get('boton') == 'verificar':
             print(request.POST.get('celular'))
             print(request.POST.get('codigo'))
