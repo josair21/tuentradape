@@ -33,8 +33,8 @@ class Tickets(models.Model):
 class Tipos(models.Model):
     tipo = models.PositiveIntegerField()
     descripcion = models.TextField()
+    cantidad = models.PositiveBigIntegerField(default=100)
     precio = models.PositiveIntegerField()
-    cantidad = models.PositiveBigIntegerField()
 
 class Preguntas(models.Model):
     tipo = models.PositiveIntegerField()
@@ -45,7 +45,7 @@ class Preguntas(models.Model):
 class codigosCelularValidacion(models.Model):
     correlativo      = models.AutoField(primary_key=True)
     celular          = models.CharField(max_length=9)
-    codigovalidacion = models.CharField(max_length=50)
+    codigovalidacion = models.CharField(max_length=6)
 
     class Meta:
         db_table = 'CelularesyCodigosValidacion'  # Reemplaza 'nombre_de_la_tabla' por el nombre que desees para tu tabla

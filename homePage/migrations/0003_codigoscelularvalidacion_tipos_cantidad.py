@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('homePage', '0002_remove_pago_key_alter_preguntas_pregunta'),
+        ('homePage', '0001_initial'),
     ]
 
     operations = [
