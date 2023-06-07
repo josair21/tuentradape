@@ -5,7 +5,7 @@ ScrollReveal().reveal('.horizontal-line', { delay: 1000 });
 ScrollReveal().reveal('#containerEntradas', { delay: 1000 });
 
 function disminuirFila(fila) {
-    var element = document.getElementById(fila);
+    var element = document.getElementById("entradasFila" + fila);
     var numero = parseInt(element.innerText);
     if (numero > 0) numero--;
     element.innerText = numero.toString().padStart(2, '0');
@@ -13,19 +13,19 @@ function disminuirFila(fila) {
 }
 
 function aumentarFila(fila) {
-    var element = document.getElementById(fila);
+    var element = document.getElementById("entradasFila" + fila);
     var numero = parseInt(element.innerText);
-    if (numero < 99) numero++;
+    if (numero < 20 && numero < parseInt(document.getElementById("restantesFila" + fila).innerText)) numero++;
     element.innerText = numero.toString().padStart(2, '0');
     montoTotal();
 }
 
 function montoTotal() {
     var total = 0;
-    total = parseInt(document.getElementById("entradasFila1").innerText) * parseInt(document.getElementById("montoFila1").innerText.substring(4)) +
-        parseInt(document.getElementById("entradasFila2").innerText) * parseInt(document.getElementById("montoFila2").innerText.substring(4)) +
-        parseInt(document.getElementById("entradasFila3").innerText) * parseInt(document.getElementById("montoFila3").innerText.substring(4)) +
-        parseInt(document.getElementById("entradasFila4").innerText) * parseInt(document.getElementById("montoFila4").innerText.substring(4));
+    total = parseInt(document.getElementById("entradasFila1").innerText) * parseInt(document.getElementById("montoFila1").innerText.substring(0)) +
+        parseInt(document.getElementById("entradasFila2").innerText) * parseInt(document.getElementById("montoFila2").innerText.substring(0)) +
+        parseInt(document.getElementById("entradasFila3").innerText) * parseInt(document.getElementById("montoFila3").innerText.substring(0)) +
+        parseInt(document.getElementById("entradasFila4").innerText) * parseInt(document.getElementById("montoFila4").innerText.substring(0));
     var element = document.getElementById("montoTotal");
     element.innerText = "S/. " + total.toString();
     var element2 = document.getElementById("monto");

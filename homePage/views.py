@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from homePage.models import Preguntas
+from homePage.models import Preguntas, Tipos
 
 def homePage(request):
     return render(request, "homePage.html")
@@ -23,7 +23,8 @@ def comprarPage(request):
             print(request.POST.get('pregunta1'))
             print(request.POST.get('pregunta2'))
     preguntas = Preguntas.objects.all()
-    return render(request, "comprarPage/comprarPage.html", {'preguntas': preguntas})
+    entradas = Tipos.objects.all()
+    return render(request, "comprarPage/comprarPage.html", {'preguntas': preguntas,'entradas': entradas})
 
 def validarPage(request):
     return render(request, "validarPage/validarPage.html")

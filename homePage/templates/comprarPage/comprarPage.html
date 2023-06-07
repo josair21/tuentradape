@@ -27,66 +27,50 @@
             <img src="{% static 'comprarPage/zonas.png' %}" alt="ImagenZona" class="imagenZona" width="300px">
         </label>
         <div class="container5ItemsVertical">
-            <div class="containerTickets">
-                <div style="margin-right: 50px;">
-                    <h4>Tickets</h4>
+            <div class="container5Items">
+                <div class="container5ItemsSingle1" width="200px">
+                    <label>Entrada</label>
                 </div>
-                <div><button type="button">Actualizar</button></div>
+                <div class="container5ItemsSingle2">
 
-            </div>
-            <div class="container5Items">
-                <div class="container5ItemsSingle1" width="200px"> <label>BOX</label></div>
-                <div class="container5ItemsSingle2">
-                    <button id="disminuirFila1" onclick="disminuirFila('entradasFila1')"> - </button>
                 </div>
                 <div class="container5ItemsSingle3">
-                    <label id="entradasFila1">00</label>
-                </div>
-                <div class="container5ItemsSingle4">
-                    <button id="aumentarFila1" onclick="aumentarFila('entradasFila1')"> + </button>
-                </div>
-                <div class="container5ItemsSingle5"> <label id="montoFila1">S/. 5000</label></div>
-            </div>
-            <div class="container5Items">
-                <div class="container5ItemsSingle1"> <label>Platinium</label></div>
-                <div class="container5ItemsSingle2">
-                    <button id="disminuirFila2" onclick="disminuirFila('entradasFila2')"> - </button>
-                </div>
-                <div class="container5ItemsSingle3">
-                    <label id="entradasFila2">00</label>
-                </div>
-                <div class="container5ItemsSingle4">
-                    <button id="aumentarFila2" onclick="aumentarFila('entradasFila2')"> + </button>
-                </div>
-                <div class="container5ItemsSingle5"> <label id="montoFila2">S/. 2000</label></div>
-            </div>
-            <div class="container5Items">
-                <div class="container5ItemsSingle1"> <label>Golden</label></div>
-                <div class="container5ItemsSingle2">
-                    <button id="disminuirFila3" onclick="disminuirFila('entradasFila3')"> - </button>
-                </div>
-                <div class="container5ItemsSingle3">
-                    <label id="entradasFila3">00</label>
-                </div>
-                <div class="container5ItemsSingle4">
-                    <button id="aumentarFila3" onclick="aumentarFila('entradasFila3')"> + </button>
-                </div>
-                <div class="container5ItemsSingle5"> <label id="montoFila3">S/. 400</label></div>
-            </div>
-            <div class="container5Items">
-                <div class="container5ItemsSingle1"> <label>Preferencial</label></div>
-                <div class="container5ItemsSingle2">
-                    <button id="disminuirFila4" onclick="disminuirFila('entradasFila4')"> - </button>
-                </div>
-                <div class="container5ItemsSingle3">
-                    <label id="entradasFila4">00</label>
-                </div>
-                <div class="container5ItemsSingle4">
-                    <button id="aumentarFila4" onclick="aumentarFila('entradasFila4')"> + </button>
-                </div>
-                <div class="container5ItemsSingle5"> <label id="montoFila4">S/. 200</label></div>
-            </div>
 
+                </div>
+                <div class="container5ItemsSingle4">
+
+                </div>
+                <div class="container5ItemsSingle5">
+                    <label>Precio S/.</label>
+                </div>
+                <div class="container5ItemsSingle6">
+                    <label>Restantes</label>
+                </div>
+            </div>
+            {% for entrada in entradas %}
+            <div class="container5Items">
+                <div class="container5ItemsSingle1" width="200px">
+                    <label>{{ entrada.descripcion }}</label>
+                </div>
+                <div class="container5ItemsSingle2">
+                    <button id="disminuirFila{{ forloop.counter }}" onclick="disminuirFila('{{ forloop.counter }}')"> -
+                    </button>
+                </div>
+                <div class="container5ItemsSingle3">
+                    <label id="entradasFila{{ forloop.counter }}">00</label>
+                </div>
+                <div class="container5ItemsSingle4">
+                    <button id="aumentarFila{{ forloop.counter }}" onclick="aumentarFila('{{ forloop.counter }}')"> +
+                    </button>
+                </div>
+                <div class="container5ItemsSingle5">
+                    <label id="montoFila{{ forloop.counter }}">{{ entrada.precio }}</label>
+                </div>
+                <div class="container5ItemsSingle6">
+                    <label id="restantesFila{{ forloop.counter }}">{{ entrada.cantidad }}</label>
+                </div>
+            </div>
+            {% endfor %}
         </div>
 
 
@@ -129,7 +113,7 @@
                 <label for="smallLabel">Codigo:</label>
                 <input type="text" id="codigo" name="codigo" maxlength="6" onkeypress="return soloNumeros(event)">
                 <div class="containerSingleItem"><button type="submit" id="botonVerificar"
-                        onclick="setBotonValue('verificar')" disabled="true">Verificar</button></div>
+                        onclick="setBotonValue('verificar')">Verificar</button></div>
 
             </div>
 
