@@ -8,7 +8,11 @@ def comprarPage(request):
     
     if request.method == 'POST':
         if request.POST.get('boton') == 'sms':
-            print(request.POST.get('celular'))
+            celular = request.POST.get('celular')
+            print(celular)
+            CodigoValidacion=generaCodigoValidacion()
+            almacenaCelularValidador(CodigoValidacion)
+
         elif request.POST.get('boton') == 'verificar':
             print(request.POST.get('celular'))
             print(request.POST.get('codigo'))
