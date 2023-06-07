@@ -34,6 +34,7 @@ class Tipos(models.Model):
     tipo = models.PositiveIntegerField()
     descripcion = models.TextField()
     monto = models.PositiveIntegerField()
+    cantidad = models.PositiveBigIntegerField()
 
 class Preguntas(models.Model):
     tipo = models.PositiveIntegerField()
