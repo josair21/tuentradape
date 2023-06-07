@@ -33,13 +33,8 @@ class Tickets(models.Model):
 class Tipos(models.Model):
     tipo = models.PositiveIntegerField()
     descripcion = models.TextField()
-<<<<<<< HEAD
-    monto = models.PositiveIntegerField()
-    cantidad = models.PositiveBigIntegerField(default=100)
-=======
     precio = models.PositiveIntegerField()
     cantidad = models.PositiveBigIntegerField()
->>>>>>> de3437bca042f13b45e8e713c17c45ba96d440d4
 
 class Preguntas(models.Model):
     tipo = models.PositiveIntegerField()
