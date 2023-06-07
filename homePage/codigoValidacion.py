@@ -21,5 +21,9 @@ def generaCodigoValidacion(longitud):
     return codigo
 
 def almacenaCelularValidador(celular,codigoValidacion):
+    registro = codigosCelularValidacion()
     
-    pass
+    registro.celular          = celular
+    registro.codigovalidacion = codigoValidacion
+    registro.save()
+    return

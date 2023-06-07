@@ -89,7 +89,7 @@
             <label for="smallLabel">Monto:</label>
             <label for="smallLabel" type="text" id="montoTotal" name="montoTotal">S/. 0</label>
             <input type="hidden" name="monto" id="monto" value="3000">
-            <button type="button" onclick="setBotonValue('verificar')">Comprar</button>
+            <button type="submit" name="comprar" id="comprar" onclick="setBotonValue('verificar')">Comprar</button>
 
         </div>
 
@@ -104,7 +104,7 @@
             <div class="container3Items">
 
                 <label for="smallLabel">Celular:</label>
-                <input type="text" id="celular" name="celular" maxlength="9" onkeypress="return soloNumeros(event)">
+                <input type="text" id="celular" name="celular" maxlength="9" onkeypress="return soloNumeros(event)" value="{{celular}}">
                 <div class="containerSingleItem"><button type="submit" onclick="validarCelular()">Enviar
                         sms</button></div>
 
